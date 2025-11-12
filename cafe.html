@@ -1,23 +1,43 @@
 <!DOCTYPE html>
+<!-- Menentukan dokumen HTML5 -->
+
 <html lang="en">
+<!-- Elemen root HTML, 'lang' menentukan bahasa halaman -->
+
 <head>
     <meta charset="UTF-8">
+    <!-- Encoding karakter UTF-8 -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Membuat halaman responsif di perangkat mobile -->
+
     <title>RJL Café</title>
+    <!-- Judul halaman muncul di tab browser -->
+
     <link rel="stylesheet" href="./frontend/style.css">
+    <!-- Menghubungkan file CSS utama -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Optimasi loading Google Fonts -->
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Memanggil font Poppins & Inter dari Google Fonts -->
 </head>
+
 <body>
-    <!-- Background with overlay -->
+    <!-- Background dengan overlay -->
     <div class="page-background" style="background-image: url('frontend/img/galeri.cafe/14.jpg');"></div>
-    
+    <!-- Gambar background halaman café -->
+
     <!-- Navigation Bar -->
     <nav class="navbar-glass">
         <div class="nav-container">
             <div class="nav-logo">RJL Group</div>
+            <!-- Logo atau nama perusahaan -->
+
             <ul class="nav-menu" id="navMenu">
+                <!-- Daftar menu navigasi -->
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="cafe.html" class="nav-link">Café</a></li>
                 <li><a href="batik.html" class="nav-link">Batik</a></li>
@@ -27,8 +47,12 @@
                 <li><a href="registration.html" class="nav-link">Registration</a></li>
                 <li><a href="developer.html" class="nav-link">Developer</a></li>
             </ul>
+
             <div class="header-line" id="headerLine"></div>
+            <!-- Garis animasi di bawah menu (aktif saat hover/selected) -->
+
             <div class="nav-toggle" id="navToggle">
+                <!-- Tombol menu untuk tampilan mobile -->
                 <span></span>
                 <span></span>
                 <span></span>
@@ -40,8 +64,11 @@
     <section class="page-hero">
         <div class="container">
             <div class="glass-card hero-card fade-in">
+                <!-- Card hero dengan efek fade-in -->
                 <h1 class="page-title">RJL Café</h1>
+                <!-- Judul halaman café -->
                 <p class="page-subtitle">Where every cup tells a story</p>
+                <!-- Subtitle untuk hero café -->
             </div>
         </div>
     </section>
@@ -50,45 +77,55 @@
     <section class="section-padding">
         <div class="container">
             <div class="glass-card content-card slide-up">
+                <!-- Card konten dengan efek slide-up -->
                 <h2 class="section-title">RJL Café</h2>
+                <!-- Judul section -->
                 <p class="section-text">
                     RJL Café is a relaxed base that blends traditional ambiance with contemporary touches.
                     Located in the heart of the city, this café offers a comfortable and warm atmosphere
                     perfect for working, hanging out with friends, or simply unwinding with a cup of coffee.
                 </p>
+                <!-- Deskripsi café -->
+
                 <div class="cafe-image-placeholder">
                     <img src="frontend/img/galeri.cafe/12.jpg" 
                          alt="Café Menu" 
                          class="content-image">
+                    <!-- Gambar ilustrasi menu atau interior café -->
                 </div>
             </div>
         </div>
     </section>
 
-
-     <!-- Menu Preview Section (Gambar di atas, teks di bawah) -->
-<section class="section-padding">
-  <div class="container">
-    <h2 class="section-title text-center">Menu Highlight</h2>
-    <div class="menu-layout glass-card slide-up">
-      <img src="frontend/img/menu.jpg" alt="Café Menu" class="menu-image-single">
-      <h3 class="card-title">Our Signature Menu</h3>
-      <p class="card-text">
-        Discover our curated selection of handcrafted coffees and artisanal pastries, 
-        prepared fresh every day with premium ingredients to create the perfect balance 
-        of flavor, aroma, and warmth.
-      </p>
-    </div>
-  </div>
-</section>
+    <!-- Menu Preview Section -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center">Menu Highlight</h2>
+            <!-- Judul section dengan teks di tengah -->
+            <div class="menu-layout glass-card slide-up">
+                <img src="frontend/img/menu.jpg" alt="Café Menu" class="menu-image-single">
+                <!-- Gambar menu café -->
+                <h3 class="card-title">Our Signature Menu</h3>
+                <!-- Judul card menu -->
+                <p class="card-text">
+                    Discover our curated selection of handcrafted coffees and artisanal pastries, 
+                    prepared fresh every day with premium ingredients to create the perfect balance 
+                    of flavor, aroma, and warmth.
+                </p>
+                <!-- Deskripsi menu -->
+            </div>
+        </div>
+    </section>
 
     <!-- Visit Us Section -->
     <section class="section-padding">
         <div class="container">
             <div class="glass-card cta-card text-center">
+                <!-- Card CTA (Call To Action) -->
                 <h2 class="section-title">Visit Us Today</h2>
                 <p class="section-text">Experience the perfect blend of taste and ambiance</p>
                 <a href="contact.html" class="btn-glass btn-primary">Find Our Location</a>
+                <!-- Tombol menuju halaman contact -->
             </div>
         </div>
     </section>
@@ -97,6 +134,7 @@
     <footer class="footer-glass">
         <div class="footer-content">
             <div class="footer-social">
+                <!-- Ikon media sosial dengan link -->
                 <a href="https://www.instagram.com/affxplore/?igsh=MTRmd3g0bnp6Mnp2Zw%3D%3D#" class="social-icon" aria-label="Instagram" target="_blank" 
                rel="noopener noreferrer">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -119,10 +157,11 @@
                 </a>
             </div>
             <p class="footer-text">&copy; 2025 RJL Group. All rights reserved.</p>
+            <!-- Hak cipta/footer text -->
         </div>
     </footer>
 
     <script src="./frontend/script.js"></script>
-    
+    <!-- Memanggil file JavaScript untuk interaksi -->
 </body>
 </html>
