@@ -6,10 +6,13 @@
 const BACKEND_URL = window.location.origin;
 const API_BASE = `${BACKEND_URL}/api`;
 
+// Tunggu DOM siap
 document.addEventListener("DOMContentLoaded", () => {
 
   /* -------------------------------
      MOBILE NAVIGATION TOGGLE
+     Fungsi: mengatur menu burger di mobile
+     Aktif di: Home & Cafe
   ------------------------------- */
   const navToggle = document.getElementById("navToggle");
   const navMenu = document.getElementById("navMenu");
@@ -30,11 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* -------------------------------
      HEADER LINE & ACTIVE LINK
+     Fungsi: menandai menu aktif dan garis bawah (header-line)
+     Home: scroll ke section, multi-section effect
+     Cafe: menandai link berdasarkan nama file (multi-page)
   ------------------------------- */
   const navLinks = document.querySelectorAll(".nav-link");
   let headerLine = document.querySelector(".header-line");
 
-  // Buat header-line jika belum ada
   if (!headerLine && navMenu) {
     headerLine = document.createElement("div");
     headerLine.className = "header-line";
@@ -56,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     headerLine.style.transform = `translateX(${rect.left - menuRect.left}px)`;
   }
 
-  // Smooth scroll (untuk halaman 1-page)
+  // Smooth scroll untuk Home page
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", e => {
       const href = anchor.getAttribute("href");
@@ -71,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Highlight active section saat scroll
+  // Highlight active section saat scroll (Home)
   const sections = document.querySelectorAll("section[id]");
   if (sections.length > 0) {
     window.addEventListener("scroll", () => {
@@ -87,8 +92,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     });
-    } else {
-    // Multi-page: aktifkan link berdasarkan nama file halaman
+  } else {
+    // Multi-page: menandai menu aktif berdasarkan nama file (Cafe)
     window.addEventListener("DOMContentLoaded", () => {
       const currentFile = window.location.pathname.split("/").pop() || "index.html";
       let currentLink = [...navLinks].find(l => {
@@ -99,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
         navLinks.forEach(l => l.classList.remove("active"));
         currentLink.classList.add("active");
 
-        // Pindahkan garis setelah halaman benar-benar siap
+        // Pindahkan garis setelah halaman siap
         setTimeout(() => moveHeaderLine(currentLink), 150);
       }
     });
@@ -112,6 +117,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* -------------------------------
      SCROLL ANIMATIONS (fade / slide)
+     Fungsi: animasi fade-in / slide untuk elemen muncul saat scroll
+     Home: hero, section content
+     Cafe: menu, gallery
   ------------------------------- */
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -129,83 +137,80 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(el);
   });
 
-/* -------------------------------
-   CONTACT FORM
-------------------------------- */
-const contactForm = document.getElementById("contactForm");
-const contactMsg = document.getElementById("contactFormMessage");
+  /* -------------------------------
+     CONTACT FORM
+     Fungsi: submit form kontak (Home)
+  ------------------------------- */
+  const contactForm = document.getElementById("contactForm");
+  const contactMsg = document.getElementById("contactFormMessage");
 
-if (contactForm) {
-  contactForm.addEventListener("submit", async e => {
-    e.preventDefault();
-    const formData = Object.fromEntries(new FormData(contactForm));
-    const btn = contactForm.querySelector('button[type="submit"]');
-    const original = btn.textContent;
+  if (contactForm) {
+    contactForm.addEventListener("submit", async e => {
+      e.preventDefault();
+      const formData = Object.fromEntries(new FormData(contactForm));
+      const btn = contactForm.querySelector('button[type="submit"]');
+      const original = btn.textContent;
 
-    btn.textContent = "Sending...";
-    btn.disabled = true;
+      btn.textContent = "Sending...";
+      btn.disabled = true;
 
-    try {
-      // 💡 Simulasi delay 1 detik biar terasa realistis
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      try {
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        console.log("Contact form data:", formData);
+        contactMsg.textContent = "✅ Thank you! We’ll get back soon.";
+        contactMsg.className = "form-message success";
+        contactForm.reset();
+      } catch {
+        contactMsg.textContent = "❌ Error sending message.";
+        contactMsg.className = "form-message error";
+      } finally {
+        btn.textContent = original;
+        btn.disabled = false;
+        contactMsg.style.display = "block";
+        setTimeout(() => (contactMsg.style.display = "none"), 4000);
+      }
+    });
+  }
 
-      // ✅ Anggap pesan terkirim sukses
-      console.log("Contact form data:", formData);
-      contactMsg.textContent = "✅ Thank you! We’ll get back soon.";
-      contactMsg.className = "form-message success";
-      contactForm.reset();
-    } catch {
-      contactMsg.textContent = "❌ Error sending message.";
-      contactMsg.className = "form-message error";
-    } finally {
-      btn.textContent = original;
-      btn.disabled = false;
-      contactMsg.style.display = "block";
-      setTimeout(() => (contactMsg.style.display = "none"), 4000);
-    }
-  });
-}
+  /* -------------------------------
+     REGISTRATION FORM
+     Fungsi: submit form registrasi (Cafe / booking)
+  ------------------------------- */
+  const regForm = document.getElementById("registrationForm");
+  const regMsg = document.getElementById("registrationFormMessage");
 
-/* -------------------------------
-   REGISTRATION FORM
-------------------------------- */
-const regForm = document.getElementById("registrationForm");
-const regMsg = document.getElementById("registrationFormMessage");
+  if (regForm) {
+    regForm.addEventListener("submit", async e => {
+      e.preventDefault();
+      const formData = Object.fromEntries(new FormData(regForm));
+      const btn = regForm.querySelector('button[type="submit"]');
+      const original = btn.textContent;
 
-if (regForm) {
-  regForm.addEventListener("submit", async e => {
-    e.preventDefault();
-    const formData = Object.fromEntries(new FormData(regForm));
-    const btn = regForm.querySelector('button[type="submit"]');
-    const original = btn.textContent;
+      btn.textContent = "Submitting...";
+      btn.disabled = true;
 
-    btn.textContent = "Submitting...";
-    btn.disabled = true;
-
-    try {
-      // 💡 Simulasi delay 1 detik
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      // ✅ Anggap registrasi sukses
-      console.log("Registration data:", formData);
-      regMsg.textContent = "✅ Registration successful!";
-      regMsg.className = "form-message success";
-      regForm.reset();
-    } catch {
-      regMsg.textContent = "❌ Error submitting registration.";
-      regMsg.className = "form-message error";
-    } finally {
-      btn.textContent = original;
-      btn.disabled = false;
-      regMsg.style.display = "block";
-      setTimeout(() => (regMsg.style.display = "none"), 4000);
-    }
-  });
-}
-
+      try {
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        console.log("Registration data:", formData);
+        regMsg.textContent = "✅ Registration successful!";
+        regMsg.className = "form-message success";
+        regForm.reset();
+      } catch {
+        regMsg.textContent = "❌ Error submitting registration.";
+        regMsg.className = "form-message error";
+      } finally {
+        btn.textContent = original;
+        btn.disabled = false;
+        regMsg.style.display = "block";
+        setTimeout(() => (regMsg.style.display = "none"), 4000);
+      }
+    });
+  }
 
   /* -------------------------------
      GALLERY MODAL & BUTTON EFFECTS
+     Fungsi: klik gambar untuk modal pop-up (Cafe)
+             tombol hover effect (Home & Cafe)
   ------------------------------- */
   document.querySelectorAll(".gallery-image, .gallery-item").forEach(img => {
     img.addEventListener("click", () => {
@@ -244,6 +249,7 @@ if (regForm) {
 
   /* -------------------------------
      NAVBAR SHADOW ON SCROLL
+     Fungsi: memberi shadow saat scroll (Home & Cafe)
   ------------------------------- */
   const navbar = document.querySelector(".navbar-glass");
   if (navbar) {
@@ -257,6 +263,9 @@ if (regForm) {
 
   /* -------------------------------
      FORM VALIDATION + LAZY LOAD + DATE INPUT
+     Fungsi: validasi form, lazy-load gambar
+             Home: validasi form
+             Cafe: lazy-load menu / gallery, tanggal booking
   ------------------------------- */
   document.querySelectorAll(".form-input, .form-textarea, .form-select").forEach(input => {
     input.addEventListener("blur", function () {
@@ -294,6 +303,8 @@ if (regForm) {
 
   /* -------------------------------
      PAGE LOAD ANIMATION
+     Fungsi: fade-in seluruh halaman saat load
+     Home & Cafe
   ------------------------------- */
   document.body.style.opacity = "0";
   window.addEventListener("load", () => {
