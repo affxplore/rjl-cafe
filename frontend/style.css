@@ -7,139 +7,161 @@
    CSS VARIABLES & RESET
    =================================== */
 :root {
-    /* Color Palette - Bright & Soft */
-    --color-white: #ffffff;
-    --color-cream: #fdfaf6;
-    --color-beige: #f5f1ed;
-    --color-light-gray: #e8e4e0;
-    --color-soft-gold: #d4af7a;
-    --color-warm-brown: #8b6f47;
-    --color-text-primary: #2d2d2d;
-    --color-text-secondary: #5a5a5a;
-    --color-text-light: #7a7a7a;
-    
-    /* Glass Effect Colors */
-    --glass-bg: rgba(255, 255, 255, 0.25);
-    --glass-border: rgba(255, 255, 255, 0.3);
-    --glass-shadow: rgba(0, 0, 0, 0.08);
-    
-    /* Spacing */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 2rem;
-    --spacing-lg: 4rem;
-    --spacing-xl: 6rem;
-    
-    /* Typography */
-    --font-primary: 'Poppins', -apple-system, sans-serif;
-    --font-secondary: 'Inter', -apple-system, sans-serif;
-    
-    /* Border Radius */
-    --radius-sm: 10px;
-    --radius-md: 20px;
-    --radius-lg: 30px;
-    
-    /* Transitions */
-    --transition-fast: 0.2s ease;
-    --transition-normal: 0.3s ease;
-    --transition-slow: 0.5s ease;
+    /* ===============================
+       PALET WARNA UTAMA
+       =============================== */
+    --color-white: #ffffff; /* putih bersih */
+    --color-cream: #fdfaf6; /* cream lembut */
+    --color-beige: #f5f1ed; /* beige hangat */
+    --color-light-gray: #e8e4e0; /* abu muda */
+    --color-soft-gold: #d4af7a; /* emas lembut */
+    --color-warm-brown: #8b6f47; /* coklat hangat */
+    --color-text-primary: #2d2d2d; /* teks utama gelap */
+    --color-text-secondary: #5a5a5a; /* teks sekunder */
+    --color-text-light: #7a7a7a; /* teks lebih terang */
+
+    /* ===============================
+       GLASS EFFECT COLORS
+       =============================== */
+    --glass-bg: rgba(255, 255, 255, 0.25); /* latar transparan glass */
+    --glass-border: rgba(255, 255, 255, 0.3); /* border transparan */
+    --glass-shadow: rgba(0, 0, 0, 0.08); /* shadow lembut */
+
+    /* ===============================
+       SPACING / JARAK
+       =============================== */
+    --spacing-xs: 0.5rem; /* ekstra kecil */
+    --spacing-sm: 1rem; /* kecil */
+    --spacing-md: 2rem; /* medium */
+    --spacing-lg: 4rem; /* besar */
+    --spacing-xl: 6rem; /* ekstra besar */
+
+    /* ===============================
+       TIPOGRAFI / FONT
+       =============================== */
+    --font-primary: 'Poppins', -apple-system, sans-serif; /* font utama */
+    --font-secondary: 'Inter', -apple-system, sans-serif; /* font sekunder */
+
+    /* ===============================
+       BORDER RADIUS
+       =============================== */
+    --radius-sm: 10px; /* radius kecil */
+    --radius-md: 20px; /* radius medium */
+    --radius-lg: 30px; /* radius besar */
+
+    /* ===============================
+       TRANSITIONS / ANIMASI HALUS
+       =============================== */
+    --transition-fast: 0.2s ease; /* cepat */
+    --transition-normal: 0.3s ease; /* normal */
+    --transition-slow: 0.5s ease; /* lambat */
 }
 
+/* ===============================
+   RESET MARGIN DAN PADDING
+   =============================== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; /* hapus margin default */
+    padding: 0; /* hapus padding default */
+    box-sizing: border-box; /* box model inklusif padding */
 }
 
+/* ===============================
+   SCROLL HALUS
+   =============================== */
 html {
     scroll-behavior: smooth;
 }
 
+/* ===============================
+   BODY / STYLE UTAMA
+   =============================== */
 body {
-    font-family: var(--font-primary);
-    color: var(--color-text-primary);
-    line-height: 1.6;
-    background-color: var(--color-cream);
-    overflow-x: hidden;
+    font-family: var(--font-primary); /* gunakan font utama */
+    color: var(--color-text-primary); /* warna teks default */
+    line-height: 1.6; /* jarak antar baris */
+    background-color: var(--color-cream); /* background body */
+    overflow-x: hidden; /* hilangkan scroll horizontal */
 }
 
 /* ===================================
-   TYPOGRAPHY
+   TYPOGRAPHY / HURUF
    =================================== */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
-    line-height: 1.2;
-    margin-bottom: var(--spacing-sm);
+    font-weight: 600; /* berat font */
+    line-height: 1.2; /* tinggi baris */
+    margin-bottom: var(--spacing-sm); /* jarak bawah heading */
 }
 
 h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
+    font-size: 3.5rem; /* ukuran heading 1 */
+    font-weight: 700; /* lebih tebal */
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* ukuran heading 2 */
 }
 
 h3 {
-    font-size: 1.75rem;
+    font-size: 1.75rem; /* ukuran heading 3 */
 }
 
 p {
-    margin-bottom: var(--spacing-sm);
-    font-family: var(--font-secondary);
+    margin-bottom: var(--spacing-sm); /* jarak antar paragraf */
+    font-family: var(--font-secondary); /* gunakan font sekunder */
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+    text-decoration: none; /* hilangkan garis bawah default link */
+    color: inherit; /* warna mengikuti teks sekitarnya */
 }
 
 /* ===================================
    BACKGROUND & OVERLAY
    =================================== */
 .page-background {
-    position: fixed;
+    position: fixed; /* tetap di layar saat scroll */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -2;
+    width: 100%; /* full width */
+    height: 100%; /* full height */
+    background-size: cover; /* gambar full cover */
+    background-position: center; /* posisi center */
+    background-repeat: no-repeat; /* tidak diulang */
+    z-index: -2; /* dibawah konten */
 }
 
 .page-background::after {
-    content: '';
+    content: ''; /* pseudo element untuk overlay */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(253, 250, 246, 0.85), rgba(245, 241, 237, 0.90));
-    backdrop-filter: blur(3px);
-    z-index: -1;
+    background: linear-gradient(135deg, rgba(253, 250, 246, 0.85), rgba(245, 241, 237, 0.90)); /* gradient lembut */
+    backdrop-filter: blur(3px); /* blur overlay */
+    z-index: -1; /* dibawah konten */
 }
 
 /* ===================================
    GLASS CARD COMPONENT
    =================================== */
 .glass-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-md);
-    box-shadow: 0 8px 32px var(--glass-shadow);
-    padding: var(--spacing-md);
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    background: var(--glass-bg); /* latar transparan */
+    backdrop-filter: blur(16px); /* efek blur */
+    -webkit-backdrop-filter: blur(16px); /* untuk safari */
+    border: 1px solid var(--glass-border); /* border lembut */
+    border-radius: var(--radius-md); /* sudut membulat */
+    box-shadow: 0 8px 32px var(--glass-shadow); /* shadow lembut */
+    padding: var(--spacing-md); /* jarak dalam card */
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal); /* animasi hover */
 }
 
 .glass-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px); /* efek naik saat hover */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12); /* shadow lebih besar */
 }
+
 
 /* ===================================
    NAVIGATION BAR (FIXED + GLASSMORPHISM)
