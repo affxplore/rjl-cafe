@@ -1,5 +1,3 @@
-JAVA SCRIPT
-
 
 /* ==================================
    RJL Group Website JavaScript
