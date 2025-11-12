@@ -1,23 +1,43 @@
 <!DOCTYPE html>
+<!-- Menentukan tipe dokumen HTML5 -->
+
 <html lang="en">
+<!-- Elemen root HTML, 'lang' menentukan bahasa halaman -->
+
 <head>
     <meta charset="UTF-8">
+    <!-- Mengatur encoding karakter agar mendukung semua karakter UTF-8 -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Membuat halaman responsif di perangkat mobile -->
+
     <title>RJL Group - Home</title>
+    <!-- Judul halaman yang muncul di tab browser -->
+
     <link rel="stylesheet" href="./frontend/style.css">
+    <!-- Menghubungkan file CSS utama -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Optimasi loading font Google -->
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Memanggil font Poppins & Inter dari Google Fonts -->
 </head>
+
 <body>
-    <!-- Background with overlay -->
+    <!-- Background dengan overlay -->
     <div class="page-background" style="background-image: url('frontend/img/galeri.cafe/13.jpg');"></div>
-    
+    <!-- Background halaman dengan gambar dan overlay -->
+
     <!-- Navigation Bar -->
     <nav class="navbar-glass">
         <div class="nav-container">
             <div class="nav-logo">RJL Group</div>
+            <!-- Logo atau nama perusahaan -->
+
             <ul class="nav-menu" id="navMenu">
+                <!-- Daftar menu navigasi -->
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="cafe.html" class="nav-link">Café</a></li>
                 <li><a href="batik.html" class="nav-link">Batik</a></li>
@@ -27,8 +47,12 @@
                 <li><a href="registration.html" class="nav-link">Registration</a></li>
                 <li><a href="developer.html" class="nav-link">Developer</a></li>
             </ul>
+
             <div class="header-line" id="headerLine"></div>
+            <!-- Garis animasi di bawah menu (aktif saat hover/selected) -->
+
             <div class="nav-toggle" id="navToggle">
+                <!-- Tombol menu untuk tampilan mobile -->
                 <span></span>
                 <span></span>
                 <span></span>
@@ -39,10 +63,19 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content fade-in">
+            <!-- Konten utama hero dengan efek fade-in -->
+
             <h1 class="hero-title">RJL Group</h1>
+            <!-- Judul besar halaman -->
+
             <h2 class="hero-subtitle">RJL Café & Batik Djojokoesoemo</h2>
+            <!-- Subtitle atau penjelasan singkat -->
+
             <p class="hero-description">The harmony of taste and culture — Café & Batik united as one.</p>
+            <!-- Deskripsi tambahan hero -->
+
             <div class="hero-buttons">
+                <!-- Tombol aksi di hero -->
                 <a href="cafe.html" class="btn-glass btn-primary">Enter Café</a>
                 <a href="batik.html" class="btn-glass btn-secondary">Enter Batik</a>
             </div>
@@ -53,6 +86,7 @@
     <footer class="footer-glass">
         <div class="footer-content">
             <div class="footer-social">
+                <!-- Ikon media sosial dengan link -->
                 <a href="https://www.instagram.com/affxplore/?igsh=MTRmd3g0bnp6Mnp2Zw%3D%3D#" class="social-icon" aria-label="Instagram" target="_blank" 
                rel="noopener noreferrer">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -75,9 +109,11 @@
                 </a>
             </div>
             <p class="footer-text">&copy; 2025 RJL Group. All rights reserved.</p>
+            <!-- Hak cipta/footer text -->
         </div>
     </footer>
 
     <script src="./frontend/script.js"></script>
+    <!-- Memanggil file JavaScript untuk interaksi -->
 </body>
 </html>
